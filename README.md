@@ -23,7 +23,7 @@ This repository follows the official WRO Future Engineers template.
 - **v-photos** → Contains 6 photos of the vehicle (from every side, top, and bottom)  
 - **video** → Contains `video.md` with the link to the driving demonstration video  
 - **schemes** → Contains schematic diagrams (JPEG, PNG, PDF) of electronic components and motor wiring  
-- **src** → Contains the Arduino C++ source code for the vehicle’s control software  
+- **src** → Contains the Arduino C source code for the vehicle’s control software  
 - **models** → Contains files for 3D printing and laser cutting of vehicle parts  
 
 
@@ -37,18 +37,12 @@ This repository follows the official WRO Future Engineers template.
 - **Arduino IDE** → For programming in Arduino C 
 - **Tinkercad** → For simulating circuits and testing code  
 - **3D Printing tools** → For designing and producing the robot body  
-
-## How to Build and Run  
-1. Connect the sensors and motors according to the wiring diagrams in the **schemes** folder.  
-2. Upload the Arduino C++ code from the **src** directory using Arduino IDE.  
-3. Place the 3D-printed parts together to assemble the body of the robot.  
-4. Test the robot in a safe environment, starting with basic movement and then activating autonomous mode.  
+ 
 
 ## Team  
 - **Team Name**: Triobotics  
-- **Robot Name**: Greenery  
+- **Robot Name**: Khadra  
 
 We are a passionate team of students exploring the fields of electronics, coding, and robotics through this exciting challenge.  
 
-## Acknowledgments  
-We would like to thank **WRO organizers**, our mentors, and all those who supported us in this journey.  
+  
