@@ -30,10 +30,10 @@ This repository follows the official WRO Future Engineers template.
 - **Microcontroller**: Arduino Uno  
 - **Sensors**: Ultrasonic sensor, Color sensor  
 - **Actuators**: Servo motor (for steering) + DC motors for movement  
-- **Other components**: Motor driver, chassis, wheels, battery pack  
+- **Other components**: chassis, wheels, battery   
 
 ## Software Used  
-- **Arduino IDE** → For programming in Arduino C++  
+- **Arduino IDE** → For programming in Arduino C 
 - **Tinkercad** → For simulating circuits and testing code  
 - **3D Printing tools** → For designing and producing the robot body  
 
