@@ -6,14 +6,15 @@ This repository contains all engineering materials for our project **Khadra**, a
 Our main objective was to design, simulate, and implement a self-driving robotic vehicle that can navigate autonomously using sensors and control algorithms.
 
 ## Our Journey  
-We started our project by exploring **microcontrollers** and learning how to connect and use **different sensors**. From there, we gradually moved on to understanding the **steering mechanism** using a **servo motor**.  
+We started our project by working with microcontrollers and learning how to connect and use different sensors. After that, we focused on understanding the steering mechanism with a servo motor.  
 
-At the beginning, we simulated all the electronic connections and tested our code using **Tinkercad**, which allowed us to safely experiment with circuits and Arduino programming. After verifying the simulations, we transitioned to building the physical model of the robot.  
+In the beginning, we used **Tinkercad** to simulate all the electronic connections and test our code, which made it easier for us to safely try out circuits and Arduino programming. Once the simulations worked as expected, we moved on to building the physical robot.  
 
-The final body of our robot was designed and fabricated using **3D printing**:  
-https://grabcad.com/library/3d-printed-rc-car-1
+For the body, we used **3D printing**, based on this model:  
+https://grabcad.com/library/3d-printed-rc-car-1  
 
-This step-by-step process helped us combine electronics, coding, and mechanical design into a working autonomous vehicle.
+Step by step, this process allowed us to bring together electronics, coding, and mechanical design into a working autonomous vehicle.
+
 
 ## Repository Structure  
 This repository follows the official WRO Future Engineers template.  
