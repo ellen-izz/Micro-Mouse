@@ -1,8 +1,8 @@
-# Greenery – WRO Future Engineers Project  
+# Khadra – WRO Future Engineers Project  
 **Team Triobotics**
 
 ## Introduction  
-This repository contains all engineering materials for our project **Greenery**, a self-driven vehicle model built by **Team Triobotics** to participate in the **WRO Future Engineers competition 2022**.  
+This repository contains all engineering materials for our project **Khadra**, a self-driven vehicle model built by **Team Triobotics** to participate in the **WRO Future Engineers competition 2025**.  
 Our main objective was to design, simulate, and implement a self-driving robotic vehicle that can navigate autonomously using sensors and control algorithms.
 
 ## Our Journey  
@@ -11,7 +11,7 @@ We started our project by exploring **microcontrollers** and learning how to con
 At the beginning, we simulated all the electronic connections and tested our code using **Tinkercad**, which allowed us to safely experiment with circuits and Arduino programming. After verifying the simulations, we transitioned to building the physical model of the robot.  
 
 The final body of our robot was designed and fabricated using **3D printing**:  
-👉 [3D model link will be placed here]  
+https://grabcad.com/library/3d-printed-rc-car-1
 
 This step-by-step process helped us combine electronics, coding, and mechanical design into a working autonomous vehicle.
 
@@ -24,7 +24,7 @@ This repository follows the official WRO Future Engineers template.
 - **schemes** → Contains schematic diagrams (JPEG, PNG, PDF) of electronic components and motor wiring  
 - **src** → Contains the Arduino C++ source code for the vehicle’s control software  
 - **models** → Contains files for 3D printing and laser cutting of vehicle parts  
-- **other** → Contains additional documentation (e.g., SBC/SBM connection guides, datasets, hardware specifications, communication protocols)
+
 
 ## Hardware Used  
 - **Microcontroller**: Arduino Uno  
