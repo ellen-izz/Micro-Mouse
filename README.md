@@ -19,8 +19,8 @@ Step by step, this process allowed us to bring together electronics, coding, and
 ## Repository Structure  
 This repository follows the official WRO Future Engineers template.  
 
-- **team photos** → Contains 2 photos of the team  
-- **v-photos** → Contains 6 photos of the vehicle from every side, top, and bottom
+- **team-photos** → Contains 2 photos of the team  
+- **photos** → Contains 6 photos of the vehicle from every side, top, and bottom
 - **video** → Contains `video.md` with the link to the driving demonstration video  
 - **schemes** → Contains schematic diagrams (JPEG, PNG, PDF) of electronic components and motor wiring  
 - **src** → Contains the Arduino C source code for the vehicle’s control software  
