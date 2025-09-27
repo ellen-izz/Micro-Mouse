@@ -23,8 +23,8 @@ This repository follows the official WRO Future Engineers template.
 - **photos** → Contains 6 photos of the vehicle from every side, top, and bottom
 - **video** → Contains `video.md` with the link to the driving demonstration video  
 - **schemes** → Contains schematic diagrams (JPEG, PNG, PDF) of electronic components and motor wiring  
-- **src** → Contains the Arduino C source code for the vehicle’s control software  
-- **models** → Contains files for 3D printing and laser cutting of vehicle parts  
+- **code.c** → Contains the Arduino C source code for the vehicle’s control software  
+- **Models** → Contains files for 3D printing and laser cutting of vehicle parts  
 
 
 ## Hardware Used  
