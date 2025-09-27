@@ -1,131 +1,98 @@
-// Motor A
-const int enA = 9;
-const int in1 = 4;
+#include <Servo.h>
+Servo ser;
+const int enA= 4;
+const int in1 = 12;
+const int enB= 11;
 const int in2 = 5;
-
-// Motor B
-const int enB = 10;
 const int in3 = 6;
 const int in4 = 7;
+const int echoPin = 8;
+const int trigPin = 2;
+const int servoPin = A0;
+const int obsdis=30;
 
-// Ultrasonic sensors
-const int echo1 = 8;
-const int trig1 = 2;
-const int echo2 = 12;
-const int trig2 = 13;
-const int echo3 = 3;
-const int trig3 = 11;
-
-void setup() {
+void setup(){
+  Serial.begin(9600);
   pinMode(enA, OUTPUT);
   pinMode(in1, OUTPUT);
   pinMode(in2, OUTPUT);
   pinMode(enB, OUTPUT);
   pinMode(in3, OUTPUT);
   pinMode(in4, OUTPUT);
-
-  pinMode(echo1, INPUT);
-  pinMode(trig1, OUTPUT);
-  pinMode(echo2, INPUT);
-  pinMode(trig2, OUTPUT);
-  pinMode(echo3, INPUT);
-  pinMode(trig3, OUTPUT);
-
-  analogWrite(enA, 255); 
-  analogWrite(enB, 255);  
-
-  digitalWrite(in1, HIGH);
-  digitalWrite(in2, LOW);
-  digitalWrite(in3, HIGH);
-  digitalWrite(in4, LOW);
-
-  Serial.begin(9600);
-  delay(150);
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+  ser.attach(servoPin);
+  ser.write(90);
+  digitalWrite(enA, HIGH);
+  digitalWrite(enB, HIGH);
 }
 
-long microsecondsToCentimeters(long microseconds) {
-  return microseconds / 29 / 2;
+void loop(){
+  int frontDistance = getDistance();
+  if (frontDistance > obsdis) {
+    ser.write(90);
+    moveForward();
+  }
+  else{
+    avoid();
+  }
 }
 
-int getDistance(int trigPin, int echoPin) {
+void avoid(){
+  stopMotors();
+  delay(200);
+  ser.write(0);
+  delay(500);
+  int leftDist = getDistance();
+  if (leftDist > obsdis) {
+    turnLeft();
+    return; 
+  }
+  ser.write(180);
+  delay(500);
+  int rightDist = getDistance();
+  if (rightDist > obsdis) {
+    turnRight();
+    return;
+  }
+  moveBackward();
+  delay(600);
+  stopMotors();
+}
+
+void moveForward() {
+  digitalWrite(in1, LOW);  digitalWrite(in2, HIGH);
+  digitalWrite(in3, LOW);  digitalWrite(in4, HIGH);
+}
+void moveBackward() {
+  digitalWrite(in1, HIGH); digitalWrite(in2, LOW);
+  digitalWrite(in3, HIGH); digitalWrite(in4, LOW);
+}
+void stopMotors() {
+  digitalWrite(in1, LOW);  digitalWrite(in2, LOW);
+  digitalWrite(in3, LOW);  digitalWrite(in4, LOW);
+}
+void turnLeft() {
+  digitalWrite(in1, HIGH); digitalWrite(in2, LOW);  
+  digitalWrite(in3, LOW);  digitalWrite(in4, HIGH); 
+  delay(500);
+  stopMotors();
+}
+void turnRight() {
+  digitalWrite(in1, LOW);  digitalWrite(in2, HIGH); 
+  digitalWrite(in3, HIGH); digitalWrite(in4, LOW);  
+  delay(500);
+  stopMotors();
+}
+int getDistance() {
   digitalWrite(trigPin, LOW);
   delayMicroseconds(2);
   digitalWrite(trigPin, HIGH);
   delayMicroseconds(10);
   digitalWrite(trigPin, LOW);
-  long duration = pulseIn(echoPin, HIGH);
-  return microsecondsToCentimeters(duration);
-}
-
-void loop() {
-  int cm1 = getDistance(trig1, echo1); // left
-  int cm2 = getDistance(trig2, echo2); // right
-  int cm3 = getDistance(trig3, echo3); // forward
-
-  Serial.print("S1: ");
-  Serial.print(cm1);
-  Serial.print(" cm   S2: ");
-  Serial.print(cm2);
-  Serial.print(" cm   S3: ");
-  Serial.println(cm3);
-
-  if (cm3 < 20) {
-    stop();
-    delay(100);
-    if (cm1 > cm2 && cm2 < 20) {
-      left();
-    } else if (cm2 > cm1 && cm1 < 20) {
-      right();
-    } else {
-      back();
-    }
-  } else if (cm1 < 20) {
-    stop();
-    delay(100);
-    right();
-  } else if (cm2 < 20) {
-    stop();
-    delay(100);
-    left();
-  } else {
-    forward();
+  long duration = pulseIn(echoPin, HIGH, 30000);
+  if (duration == 0) {
+    return 1000;
   }
-
-  delay(150); 
-}
-
-// Motor control functions
-void forward() {
-  digitalWrite(in1, HIGH);
-  digitalWrite(in2, LOW);
-  digitalWrite(in3, HIGH);
-  digitalWrite(in4, LOW);
-}
-
-void back() {
-  digitalWrite(in1, LOW);
-  digitalWrite(in2, HIGH);
-  digitalWrite(in3, LOW);
-  digitalWrite(in4, HIGH);
-}
-
-void left() {
-  digitalWrite(in1, LOW);
-  digitalWrite(in2, HIGH);
-  digitalWrite(in3, HIGH);
-  digitalWrite(in4, LOW);
-}
-
-void right() {
-  digitalWrite(in1, HIGH);
-  digitalWrite(in2, LOW);
-  digitalWrite(in3, LOW);
-  digitalWrite(in4, HIGH);
-}
-
-void stop() {
-  digitalWrite(in1, LOW);
-  digitalWrite(in2, LOW);
-  digitalWrite(in3, LOW);
-  digitalWrite(in4, LOW);
+  return duration / 29 / 2; 
 }
