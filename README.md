@@ -22,7 +22,7 @@ This repository follows the official WRO Future Engineers template.
 - **team-photos** → Contains 2 photos of the team  
 - **photos** → Contains 6 photos of the vehicle from every side, top, and bottom
 - **video** → Contains `video.md` with the link to the driving demonstration video  
-- **schemes** → Contains schematic diagrams (JPEG, PNG, PDF) of electronic components and motor wiring  
+- **schemes** → Contains Tinkercad screenshot showing the wiring of the Arduino Uno, sensors, servo motor, DC motors, and motor driver
 - **code.c** → Contains the Arduino C source code for the vehicle’s control software  
 - **Models** → Contains files for 3D printing and laser cutting of vehicle parts  
 
@@ -31,7 +31,7 @@ This repository follows the official WRO Future Engineers template.
 - **Microcontroller**: Arduino Uno  
 - **Sensors**: Ultrasonic sensor, Color sensor  
 - **Actuators**: Servo motor (for steering) + DC motors for movement  
-- **Other components**: chassis, wheels, battery   
+- **Other components**: motor driver, chassis, wheels, battery   
 
 ## Software Used  
 - **Arduino IDE** → For programming in Arduino C 
